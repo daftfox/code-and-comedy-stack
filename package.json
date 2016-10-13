@@ -12,8 +12,5 @@
   "license": "ISC",
   "dependencies": {
     "express": "^4.14.0"
-  },
-  "config": {
-    "unsafe-perm":true
   }
 }
