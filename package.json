@@ -1,0 +1,16 @@
+{
+  "name": "code_and_comedy_stack",
+  "version": "1.0.0",
+  "description": "The full Code & Comedy stack",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js",
+    "postinstall": "npm --prefix ./back-end install ./back-end"
+  },
+  "author": "Timothy Claassens",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.14.0"
+  }
+}
