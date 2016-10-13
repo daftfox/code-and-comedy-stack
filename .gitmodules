@@ -1,0 +1,6 @@
+[submodule "front-end"]
+	path = front-end
+	url = https://github.com/daftfox/code-and-comedy-frontend.git
+[submodule "back-end"]
+	path = back-end
+	url = https://github.com/daftfox/ordina-event-registration.git
