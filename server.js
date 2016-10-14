@@ -1,11 +1,13 @@
 var express = require('express');
 var app = express();
+var cors = require('cors');
 
 var backend = require('./back-end/app.js');
 var frontend = require('./front-end/server.js');
 
 app.use(backend);
 app.use(frontend);
+app.use(cors());
 
 backend.set('port', 3000);
 frontend.set('port', process.env.PORT || 3001);
