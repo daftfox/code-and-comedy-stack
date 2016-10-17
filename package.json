@@ -4,7 +4,8 @@
   "description": "The full Code & Comedy stack",
   "main": "server.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test-backend": "cd back-end/ && npm test",
+    "test": "echo 'please run `npm run test-backend` to run tests",
     "start": "node server.js",
     "postinstall": "npm --prefix ./back-end install ./back-end"
   },
