@@ -12,3 +12,6 @@ The site will be available at `http://localhost:3001/`
 The API will be available at `http://localhost:3000/`
 
 Run `git submodule update --recursive` to pull the latest updates of the front-end and back-end submodules.
+
+The back-end requires a database which can be configures in `back-end/db.js`.
+The required SQL dump can be found in `./db.sql`
