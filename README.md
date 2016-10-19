@@ -1,8 +1,20 @@
 # Code & Comedy stack
 Serves front-end and back-end for the Code & Comedy website
 
-## Build & development
+## Installing your dev environment
+(skip if you only want to run the app)
 
+Install the following dependencies
+- [Nodejs 4.x](https://nodejs.org/dist/v4.6.0/node-v4.6.0-x64.msi)
+- [Ruby](http://dl.bintray.com/oneclick/rubyinstaller/rubyinstaller-2.3.1-x64.exe)
+- [Git](https://git-scm.com/download/win)
+- Your favorite text editor
+
+After installing the packages above, run the following commands (you might have to reboot your machine or reinitiate a command prompt window):
+- Run `npm install -g yo grunt-cli bower`. This installs global Nodejs dependencies.
+- Run `gem install sass compass`. This installs the required SASS compiler.
+
+## Running the app
 Run `npm install --unsafe-perm`. The `--unsafe-perm` flag allows the recursive installation of dependencies in the back-end.
 
 Run `npm run test-backend` to test the API.
