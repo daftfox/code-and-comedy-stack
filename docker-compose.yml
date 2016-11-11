@@ -1,0 +1,39 @@
+version: "2"
+services:
+  proxy:
+    build:
+      context: ./proxy
+    ports:
+      - 8881:80
+    restart: always
+
+  web:
+    build:
+      context: .
+    environment:
+#      - API_URL=http://code-and-comedy.westeurope.cloudapp.azure.com/
+#      - API_URL=http://www.codeandcomedy.nl/
+      - API_URL=http://192.168.99.100:8881/api/
+    depends_on:
+      - mysql
+    ports:
+      - "3000:3000"
+      - "3001:3001"
+    restart: always
+
+  mysql:
+    image: mysql:5.6
+    environment:
+      - MYSQL_ROOT_PASSWORD=test
+      - MYSQL_DATABASE=code_and_comedy
+      - MYSQL_USER=cnc
+      - MYSQL_PASSWORD=18943318f90e38630d9c8d81eb81dedfdb15ec67e6479e209fbf529e6fb40333
+    ports:
+      - 3306:3306
+    volumes:
+      - mysqldatavolume:/var/lib/mysql
+    restart: always
+
+volumes:
+  mysqldatavolume:
+    driver: local
