@@ -4,7 +4,7 @@ services:
     build:
       context: ./proxy
     ports:
-      - 8881:80
+      - 80:80
     restart: always
 
   web:
