@@ -3,7 +3,14 @@
 rsync -arve "ssh $SSH_OPTIONS" --no-perms --no-owner --no-group --delete --exclude '.git' . sre16077@code-and-comedy.westeurope.cloudapp.azure.com:/home/sre16077/cnc
 
 ssh sre16077@code-and-comedy.westeurope.cloudapp.azure.com << 'EOF'
-  /home/sre16077/cnc
+  # The set -e option instructs bash to immediately exit if any command [1] has a non-zero exit status
+  set -e
+
+  # This setting prevents errors in a pipeline from being masked. If any command in a pipeline fails, that return code will be used as the return code of the whole pipeline.
+  set -o pipefail
+
+  # Changedir, set permissions
+  cd /home/sre16077/cnc
   find . -type d -exec chmod a+rx {} ";"
   find . -type f -exec chmod a+r {} ";"
 
