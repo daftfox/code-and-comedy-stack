@@ -16,4 +16,5 @@ deployment:
   production:
     branch: circleci-setup
     commands:
+      - chmod u+x ./deploy-to-production.sh
       - ./deploy-to-production.sh

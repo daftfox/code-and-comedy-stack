@@ -1,4 +1,4 @@
-#!/usr/bin/env bash
+#!/bin/bash
 
 rsync -arve "ssh $SSH_OPTIONS" --no-perms --no-owner --no-group --delete --exclude '.git' . sre16077@code-and-comedy.westeurope.cloudapp.azure.com:/home/sre16077/cnc
 
