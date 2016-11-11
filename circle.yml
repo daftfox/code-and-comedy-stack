@@ -14,7 +14,7 @@ test:
     - npm run test-backend
 deployment:
   production:
-    branch: circleci-setup
+    branch: master
     commands:
       - chmod u+x ./deploy-to-production.sh
       - ./deploy-to-production.sh
