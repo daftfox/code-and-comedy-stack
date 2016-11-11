@@ -11,9 +11,9 @@ services:
     build:
       context: .
     environment:
-#      - API_URL=http://code-and-comedy.westeurope.cloudapp.azure.com/
+      - API_URL=http://code-and-comedy.westeurope.cloudapp.azure.com/
 #      - API_URL=http://www.codeandcomedy.nl/
-      - API_URL=http://192.168.99.100:8881/api/
+#      - API_URL=http://192.168.99.100:8881/api/
     depends_on:
       - mysql
     ports:
