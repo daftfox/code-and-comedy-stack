@@ -2,8 +2,9 @@ machine:
   node:
     version: 5.6.0
 dependencies:
-  - npm install -g swagger
-  - npm install --unsafe-perm
+  override:
+    - npm install -g swagger
+    - npm install --unsafe-perm
 checkout:
   post:
     - git submodule sync
