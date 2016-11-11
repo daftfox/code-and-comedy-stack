@@ -2,7 +2,7 @@
 
 rsync -arve "ssh $SSH_OPTIONS" --no-perms --no-owner --no-group --delete --exclude '.git' . sre16077@code-and-comedy.westeurope.cloudapp.azure.com:/home/sre16077/cnc
 
-ssh sre16077@code-and-comedy.westeurope.cloudapp.azure.com << 'EOF'
+ssh sre16077@code-and-comedy.westeurope.cloudapp.azure.com << EOF
   # The set -e option instructs bash to immediately exit if any command [1] has a non-zero exit status
   set -e
 
@@ -18,10 +18,24 @@ ssh sre16077@code-and-comedy.westeurope.cloudapp.azure.com << 'EOF'
   curl -L https://github.com/docker/compose/releases/download/1.7.1/docker-compose-Linux-x86_64 > ./docker-compose
   chmod u+x ./docker-compose
 
+  # Store mysql password from CircleCi in the db.js
+  sed -i "s#var db#var db-dev#g" back-end/db.js
+  echo << MYSQL
+var db = mysql.createPool({
+    host     : 'mysql',
+    user     : 'cnc',
+    password : '$MYSQL_PASS',
+    database : 'code_and_comedy',
+    connectionLimit: 10
+});
+MYSQL
+
   # And go!
   ./docker-compose build
   ./docker-compose up -d
+EOF
 
+ssh sre16077@code-and-comedy.westeurope.cloudapp.azure.com << 'EOF'
   # Clean up
   docker rmi -f $(docker images -q -f dangling=true) || true
 EOF
