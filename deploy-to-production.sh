@@ -1,8 +1,8 @@
 #!/usr/bin/env bash
 
-rsync -arve "ssh $SSH_OPTIONS" --no-perms --no-owner --no-group --delete --exclude '.git' . srenkens@code-and-comedy.westeurope.cloudapp.azure.com:/home/sre16077/cnc
+rsync -arve "ssh $SSH_OPTIONS" --no-perms --no-owner --no-group --delete --exclude '.git' . sre16077@code-and-comedy.westeurope.cloudapp.azure.com:/home/sre16077/cnc
 
-ssh srenkens@code-and-comedy.westeurope.cloudapp.azure.com << 'EOF'
+ssh sre16077@code-and-comedy.westeurope.cloudapp.azure.com << 'EOF'
   /home/sre16077/cnc
   find . -type d -exec chmod a+rx {} ";"
   find . -type f -exec chmod a+r {} ";"
