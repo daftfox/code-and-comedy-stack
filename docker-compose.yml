@@ -27,7 +27,7 @@ services:
       - MYSQL_ROOT_PASSWORD=test
       - MYSQL_DATABASE=code_and_comedy
       - MYSQL_USER=cnc
-      - MYSQL_PASSWORD=${MYSQL_PASS}
+      - MYSQL_PASSWORD=18943318f90e38630d9c8d81eb81dedfdb15ec67e6479e209fbf529e6fb40333
     ports:
       - 3306:3306
     volumes:
