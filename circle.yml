@@ -1,0 +1,19 @@
+machine:
+  node:
+    version: 5.6.0
+  services:
+    - docker
+dependencies:
+    - npm install -g swagger
+    - npm install --unsafe-perm
+checkout:
+  post:
+    - git submodule sync
+    - git submodule update --init
+test:
+    - npm run test-backend
+deployment:
+  production:
+    branch: master
+    commands:
+      - echo todo
