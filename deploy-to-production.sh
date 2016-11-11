@@ -15,7 +15,6 @@ ssh sre16077@code-and-comedy.westeurope.cloudapp.azure.com << 'EOF'
   find . -type f -exec chmod a+r {} ";"
 
   # Install docker compose
-  cd docker
   curl -L https://github.com/docker/compose/releases/download/1.7.1/docker-compose-Linux-x86_64 > ./docker-compose
   chmod u+x ./docker-compose
 
