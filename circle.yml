@@ -16,4 +16,4 @@ deployment:
   production:
     branch: master
     commands:
-      - echo todo
+      - ./deploy-to-production.sh
