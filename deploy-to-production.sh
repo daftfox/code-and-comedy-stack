@@ -19,8 +19,8 @@ ssh sre16077@code-and-comedy.westeurope.cloudapp.azure.com << EOF
   chmod u+x ./docker-compose
 
   # Store mysql password from CircleCi in the db.js
-  sed -i "s#var db#var db-dev#g" back-end/db.js
-  cat << MYSQL >> back-end/db.js
+  cat << MYSQLCONFIG > back-end/db.js
+var mysql = require('mysql');
 var db = mysql.createPool({
     host     : 'mysql',
     user     : 'cnc',
@@ -28,7 +28,8 @@ var db = mysql.createPool({
     database : 'code_and_comedy',
     connectionLimit: 10
 });
-MYSQL
+module.exports = db;
+MYSQLCONFIG
 
   # And go!
   ./docker-compose build
